@@ -1,0 +1,155 @@
+{
+  "project": "Grafana-Dashboard-Unified",
+  "version": "1.0.0",
+  "lastUpdated": "2025-12-12T00:00:00Z",
+
+  "currentPhase": 0,
+  "currentStep": 0,
+  "status": "not_started",
+
+  "phases": {
+    "1": {
+      "name": "Railway Deployment",
+      "status": "pending",
+      "triggers": ["start phase 1", "deploy grafana", "railway setup"],
+      "steps": [
+        {"id": "1.1", "name": "Create Railway project", "status": "pending", "output": null},
+        {"id": "1.2", "name": "Deploy Grafana container", "status": "pending", "output": null},
+        {"id": "1.3", "name": "Configure environment variables", "status": "pending", "output": null},
+        {"id": "1.4", "name": "Attach persistent volume", "status": "pending", "output": null},
+        {"id": "1.5", "name": "Verify health endpoint", "status": "pending", "output": null}
+      ],
+      "outputs": {
+        "grafana_url": null,
+        "admin_user": null
+      }
+    },
+    "2": {
+      "name": "Organization Setup",
+      "status": "pending",
+      "triggers": ["start phase 2", "setup orgs", "create organizations"],
+      "steps": [
+        {"id": "2.1", "name": "Create Organization: Project A", "status": "pending", "output": null},
+        {"id": "2.2", "name": "Create Organization: Project B", "status": "pending", "output": null},
+        {"id": "2.3", "name": "Create Organization: Project C", "status": "pending", "output": null},
+        {"id": "2.4", "name": "Create admin user for Project A", "status": "pending", "output": null},
+        {"id": "2.5", "name": "Create admin user for Project B", "status": "pending", "output": null},
+        {"id": "2.6", "name": "Create admin user for Project C", "status": "pending", "output": null},
+        {"id": "2.7", "name": "Verify user isolation", "status": "pending", "output": null}
+      ],
+      "outputs": {
+        "org_a_id": null,
+        "org_b_id": null,
+        "org_c_id": null,
+        "user_a": null,
+        "user_b": null,
+        "user_c": null
+      }
+    },
+    "3": {
+      "name": "Data Source Configuration",
+      "status": "pending",
+      "triggers": ["start phase 3", "setup datasources", "configure databases"],
+      "steps": [
+        {"id": "3.1", "name": "Configure PostgreSQL for Project A", "status": "pending", "output": null},
+        {"id": "3.2", "name": "Configure PostgreSQL for Project B", "status": "pending", "output": null},
+        {"id": "3.3", "name": "Configure PostgreSQL for Project C", "status": "pending", "output": null},
+        {"id": "3.4", "name": "Test all database connections", "status": "pending", "output": null}
+      ],
+      "outputs": {
+        "ds_a_uid": null,
+        "ds_b_uid": null,
+        "ds_c_uid": null
+      }
+    },
+    "4": {
+      "name": "Dashboard Creation",
+      "status": "pending",
+      "triggers": ["start phase 4", "create dashboards", "setup dashboards"],
+      "steps": [
+        {"id": "4.1", "name": "Create dashboard for Project A", "status": "pending", "output": null},
+        {"id": "4.2", "name": "Create dashboard for Project B", "status": "pending", "output": null},
+        {"id": "4.3", "name": "Create dashboard for Project C", "status": "pending", "output": null},
+        {"id": "4.4", "name": "Configure date pickers", "status": "pending", "output": null},
+        {"id": "4.5", "name": "Enable CSV export on tables", "status": "pending", "output": null}
+      ],
+      "outputs": {
+        "dashboard_a_uid": null,
+        "dashboard_b_uid": null,
+        "dashboard_c_uid": null
+      }
+    },
+    "5": {
+      "name": "Subdomain Routing",
+      "status": "pending",
+      "triggers": ["start phase 5", "setup routing", "configure subdomains"],
+      "steps": [
+        {"id": "5.1", "name": "Deploy redirect service", "status": "pending", "output": null},
+        {"id": "5.2", "name": "Configure DNS/subdomains", "status": "pending", "output": null},
+        {"id": "5.3", "name": "Test subdomain redirects", "status": "pending", "output": null},
+        {"id": "5.4", "name": "Enable kiosk mode", "status": "pending", "output": null}
+      ],
+      "outputs": {
+        "redirect_service_url": null,
+        "subdomain_a": null,
+        "subdomain_b": null,
+        "subdomain_c": null
+      }
+    },
+    "6": {
+      "name": "Testing & Validation",
+      "status": "pending",
+      "triggers": ["start phase 6", "validate", "test deployment"],
+      "steps": [
+        {"id": "6.1", "name": "Test user login isolation", "status": "pending", "output": null},
+        {"id": "6.2", "name": "Test data source isolation", "status": "pending", "output": null},
+        {"id": "6.3", "name": "Test CSV export functionality", "status": "pending", "output": null},
+        {"id": "6.4", "name": "Test date range filtering", "status": "pending", "output": null},
+        {"id": "6.5", "name": "Security audit", "status": "pending", "output": null}
+      ],
+      "outputs": {
+        "all_tests_passed": false
+      }
+    }
+  },
+
+  "userPreferences": {
+    "databases": "postgresql",
+    "auth_method": "basic",
+    "edition": "open_source",
+    "tenant_type": "external_customers",
+    "export_format": "csv",
+    "deployment_platform": "railway",
+    "subdomain_routing": true
+  },
+
+  "credentials": {
+    "grafana_url": null,
+    "admin_user": "superadmin",
+    "admin_password": null,
+    "project_a_db": {
+      "host": null,
+      "database": null,
+      "user": null,
+      "password": null
+    },
+    "project_b_db": {
+      "host": null,
+      "database": null,
+      "user": null,
+      "password": null
+    },
+    "project_c_db": {
+      "host": null,
+      "database": null,
+      "user": null,
+      "password": null
+    }
+  },
+
+  "history": [],
+
+  "errors": [],
+
+  "lessons": []
+}
