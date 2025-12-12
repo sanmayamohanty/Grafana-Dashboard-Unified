@@ -11,8 +11,11 @@ ENV GF_AUTH_DISABLE_LOGIN_FORM=false
 ENV GF_SECURITY_COOKIE_SECURE=true
 ENV GF_SECURITY_STRICT_TRANSPORT_SECURITY=true
 
-# Copy provisioning configuration and set correct ownership
+# Copy provisioning configuration and set correct ownership and permissions
 COPY --chown=grafana:grafana provisioning/ /etc/grafana/provisioning/
+RUN chmod -R 755 /etc/grafana/provisioning && \
+    find /etc/grafana/provisioning -type f -name "*.yaml" -exec chmod 644 {} \; && \
+    find /etc/grafana/provisioning -type f -name "*.json" -exec chmod 644 {} \;
 
 # Railway uses PORT env var, Grafana needs GF_SERVER_HTTP_PORT
 ENV GF_SERVER_HTTP_PORT=${PORT:-3000}
