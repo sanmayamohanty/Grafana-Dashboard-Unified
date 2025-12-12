@@ -1,0 +1,62 @@
+# Grafana Data Sources Provisioning
+# Note: Data sources are organization-specific
+# You need to configure these via Grafana UI or API after creating organizations
+# This file serves as a template/reference
+
+apiVersion: 1
+
+# IMPORTANT: Provisioned data sources go to the default org (Org ID: 1)
+# For multi-tenant setup, you should configure data sources per org via:
+# 1. Grafana Admin UI (switch to each org, add data source)
+# 2. Grafana API with org-specific headers
+
+# Template for manual configuration per organization:
+# ================================================
+#
+# Organization 2 (Project A):
+# ---------------------------
+# Name: ProjectA-PostgreSQL
+# Type: postgres
+# Host: ${PROJECTA_PG_HOST}:5432
+# Database: ${PROJECTA_PG_DATABASE}
+# User: ${PROJECTA_PG_USER}
+# Password: ${PROJECTA_PG_PASSWORD}
+# SSL Mode: require
+#
+# Organization 3 (Project B):
+# ---------------------------
+# Name: ProjectB-PostgreSQL
+# Type: postgres
+# Host: ${PROJECTB_PG_HOST}:5432
+# Database: ${PROJECTB_PG_DATABASE}
+# User: ${PROJECTB_PG_USER}
+# Password: ${PROJECTB_PG_PASSWORD}
+# SSL Mode: require
+#
+# Organization 4 (Project C):
+# ---------------------------
+# Name: ProjectC-PostgreSQL
+# Type: postgres
+# Host: ${PROJECTC_PG_HOST}:5432
+# Database: ${PROJECTC_PG_DATABASE}
+# User: ${PROJECTC_PG_USER}
+# Password: ${PROJECTC_PG_PASSWORD}
+# SSL Mode: require
+
+# Default data source for Main Org (admin use only)
+datasources:
+  - name: Default-PostgreSQL
+    type: postgres
+    access: proxy
+    url: ${DEFAULT_PG_HOST:-localhost}:5432
+    database: ${DEFAULT_PG_DATABASE:-grafana}
+    user: ${DEFAULT_PG_USER:-grafana}
+    secureJsonData:
+      password: ${DEFAULT_PG_PASSWORD:-grafana}
+    jsonData:
+      sslmode: require
+      maxOpenConns: 10
+      maxIdleConns: 5
+      connMaxLifetime: 14400
+    isDefault: true
+    editable: true

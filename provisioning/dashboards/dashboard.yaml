@@ -1,0 +1,22 @@
+# Grafana Dashboard Provisioning Configuration
+# Note: Provisioned dashboards go to the default org (Org ID: 1)
+# For multi-tenant setup, import dashboards per org via Grafana UI or API
+
+apiVersion: 1
+
+providers:
+  - name: 'default'
+    orgId: 1
+    folder: 'Templates'
+    folderUid: 'templates'
+    type: file
+    disableDeletion: false
+    updateIntervalSeconds: 30
+    allowUiUpdates: true
+    options:
+      path: /etc/grafana/provisioning/dashboards/templates
+
+# To provision dashboards for specific organizations:
+# 1. Use Grafana API with X-Grafana-Org-Id header
+# 2. Import dashboard JSON via UI while switched to target org
+# 3. Use the dashboard templates in /templates folder as starting point
